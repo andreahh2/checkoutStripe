@@ -38,11 +38,11 @@ app.post('/demo', async (req, res) => {
   };
     
   console.log(body.auth)
-    axios(config).then(function (response) {
-      res.status(200).json(response.data);
-  }).catch(function (error) {
+   // axios(config).then(function (response) {
+      res.status(200).json({"ok": true});
+  /*}).catch(function (error) {
     res.status(400).json(error);
-  });
+  });*/
   
   
 });
