@@ -1,8 +1,6 @@
 const express = require('express')
 const app = express()
-/*const axios = require('axios');
-const FormData = require('form-data');
-const https = require('https')*/
+const axios = require('axios');
 const cors = require('cors')
 
 
@@ -38,11 +36,11 @@ app.post('/demo', async (req, res) => {
   };
     
   console.log(config)
-   // axios(config).then(function (response) {
+    axios(config).then(function (response) {
       res.status(200).json({"ok": true});
-  /*}).catch(function (error) {
+  }).catch(function (error) {
     res.status(400).json(error);
-  });*/
+  });
   
   
 });
