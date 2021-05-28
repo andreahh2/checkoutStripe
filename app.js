@@ -1,8 +1,5 @@
 const express = require('express')
 const app = express()
-const axios = require('axios');
-const FormData = require('form-data');
-const https = require('https')
 const cors = require('cors')
 
 
@@ -23,28 +20,6 @@ app.post('/create-checkout-session', async (req, res) => {
   res.status(200).json({ id: session.id });
 });
 app.get('/test', (req, res)=>res.status(200).json({ok: true}));
-app.post('/demo', async (req, res) => {
-  const body = (req.body)
-  var config = {
-    method: 'post',
-    url: 'https://payment.snipcart.com/api/private/custom-payment-gateway/payment',
-    headers: { 
-      'Access-Control-Allow-Origin': '*', 
-      'Content-Type': 'application/json',
-      'Access-Control-Request-Headers': '*',
-      'Authorization': 'Bearer '+req.body.auth
-    },
-    data : JSON.stringify(body)
-  };
-    
-  console.log(body.auth)
-   // axios(config).then(function (response) {
-      res.status(200).json({"ok": true});
-  /*}).catch(function (error) {
-    res.status(400).json(error);
-  });*/
-  
-  
-});
+
 
 app.listen((process.env.PORT || 5000), () => console.log('Node server listening on port 3000!'));
